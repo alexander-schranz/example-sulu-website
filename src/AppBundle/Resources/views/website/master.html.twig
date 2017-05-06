@@ -1,50 +1,41 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="{{ app.request.locale }}">
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        {% block meta %}{% endblock %}
+        {%- block metaSeo -%}
+            {%- include "AppBundle:website:blocks/meta-seo.html.twig" -%}
+        {%- endblock -%}
 
-        {% block style %}{% endblock %}
+        {%- block style -%}
+            <link rel="stylesheet" href="{{ asset('/bundles/app/website/main.css', 'static') }}" />
+        {%- endblock -%}
     </head>
     <body>
-        <header>
-            {% block header %}
-                <nav>
-                    <ul>
-                        <li><a href="{{ sulu_content_root_path() }}">Homepage</a></li>
-                        {% for item in sulu_navigation_root_tree('main') %}
-                            <li>
-                                <a href="{{ sulu_content_path(item.url) }}"
-                                   title="{{ item.title }}">{{ item.title }}</a>
-                            </li>
-                        {% endfor %}
-                    </ul>
-                </nav>
-            {% endblock %}
-        </header>
+        {% block navigation -%}
+            {% include "AppBundle:website:blocks/navigation.html.twig" %}
+        {%- endblock %}
 
-        <form action="{{ path('sulu_search.website_search') }}" method="GET">
-            <input name="q" type="text" placeholder="Search" />
-            <input type="submit" value="Go" />
-        </form>
+        <div class="site">
+            {% block header -%}
+                {% include "AppBundle:website:blocks/header.html.twig" %}
+            {%- endblock %}
 
-        <section id="content" vocab="http://schema.org/" typeof="Content">
             {% block content %}{% endblock %}
-        </section>
 
-        <aside>
-            {% block aside %}{% endblock %}
-        </aside>
-
-        <footer>
             {% block footer %}
-                <p>Copyright {{ 'now'|date('Y') }} SULU</p>
+                {% include "AppBundle:website:blocks/footer.html.twig" %}
             {% endblock %}
-        </footer>
+        </div>
 
-        {% block javascripts %}{% endblock %}
+        {% block javascripts %}
+            <script src="{{ asset('/bundles/app/website/main.js', 'static') }}"></script>
+            <script>
+                web.startComponents({{ get_components() }});
+                web.callServices({{ get_services() }});
+            </script>
+        {% endblock %}
     </body>
 </html>
