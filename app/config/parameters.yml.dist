@@ -2,10 +2,10 @@ parameters:
     database_driver:   pdo_mysql
     database_host:     127.0.0.1
     database_port:     ~
-    database_name:     sulu
+    database_name:     su_blackriver
     database_user:     root
     database_password: ~
-    database_version:  5.5
+    database_version:  5.7
     # You should uncomment this if you want use pdo_sqlite
     # database_path: "%kernel.var_dir%/database.sqlite"
 
@@ -17,7 +17,7 @@ parameters:
     # A secret key that's used to generate certain security-related tokens
     secret:            ThisTokenIsNotSoSecretChangeIt
 
-    sulu_admin.name:    Sulu
+    sulu_admin.name:    Blackriver
     sulu_admin.email:   ~
 
     websocket_port: 9876
@@ -28,7 +28,7 @@ parameters:
     #        url: http://localhost:8080/server/
     phpcr_backend:
         type: doctrinedbal
-    phpcr_workspace: default
+    phpcr_workspace: blackriver
     phpcr_user: admin
     phpcr_pass: admin
     phpcr_cache: file_system

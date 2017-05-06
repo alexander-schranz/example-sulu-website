@@ -5,9 +5,9 @@
 
     <key>homepage</key>
 
-    <view>templates/homepage</view>
+    <view>AppBundle:website:templates/pages/homepage</view>
     <controller>SuluWebsiteBundle:Default:index</controller>
-    <cacheLifetime>2400</cacheLifetime>
+    <cacheLifetime>144000</cacheLifetime>
 
     <meta>
         <title lang="en">Homepage</title>
