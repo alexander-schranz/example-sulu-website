@@ -1,0 +1,13 @@
+{%- embed 'SuluWebsiteBundle:Extension:seo.html.twig' with {
+    seo: extension.seo|default([]),
+    content: content|default([]),
+    urls: urls|default([]),
+    shadowBaseLocale: shadowBaseLocale|default(),
+    defaultLocale: request.defaultLocale|default('de')
+} -%}
+    {%- block title -%}
+        {%- if seoTitle -%}
+            <title>{{ seoTitle }} | Blackriver</title>
+        {%- endif -%}
+    {%- endblock -%}
+{%- endembed -%}

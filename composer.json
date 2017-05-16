@@ -32,12 +32,19 @@
         "doctrine/doctrine-fixtures-bundle": "2.2.*",
         "doctrine/doctrine-bundle": "^1.0",
         "doctrine/doctrine-cache-bundle": "^1.0",
-        "oro/doctrine-extensions": "^1.0"
+        "oro/doctrine-extensions": "^1.0",
+        "massive/web-twig-extensions": "1.0.*"
     },
     "require-dev": {
         "sensio/generator-bundle": "^3.0",
         "phpcr/phpcr-shell": "@beta"
     },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "git@github.com:massiveart/web-twig.git"
+        }
+    ],
     "platform": {
         "php": "7.0.*"
     },

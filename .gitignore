@@ -39,6 +39,19 @@ app/maintenance.php
 /composer.phar
 /vendor
 
+# Frontend caches
+.sass-cache/
+node_modules/
+bower_components/
+.grunt/
+temp.js
+
+# node
+node_modules
+npm-debug.log
+.sass-cache
+yarn-error.log
+
 # IDEs
 /.idea
 *.iml
@@ -46,3 +59,4 @@ app/maintenance.php
 
 # System files
 .DS_Store
+

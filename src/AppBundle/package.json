@@ -1,0 +1,241 @@
+{
+  "name": "AppBundle",
+  "version": "1.0.1",
+  "description": "AppBundle",
+  "main": "Resources/js/main.js",
+  "repository": "https://github.com/alexander-schranz/example-sulu-website",
+  "author": "Alexander Schranz",
+  "license": "MIT",
+  "scripts": {
+    "build": "npm run build:css && npm run build:js && npm run update:version",
+    "watch": "parallelshell 'npm run watch:js' 'npm run watch:css'",
+    "build:js": "npm run lint:js:fix && npm run browserify && npm run uglify",
+    "watch:js": "watchify Resources/js/main.js -o Resources/public/website/main.js --verbose --delay 300 --poll",
+    "browserify": "browserify Resources/js/main.js -o Resources/public/website/main.js",
+    "uglify": "uglifyjs Resources/public/website/main.js -o Resources/public/website/main.js",
+    "lint:js": "eslint Resources/js",
+    "lint:js:fix": "eslint Resources/js --fix",
+    "build:css": "npm run lint:css:fix && npm run lint:css && npm run scss && npm run postcss",
+    "watch:css": "onchange 'Resources/css/**/*.scss' 'Resources/css/*.scss' -- npm run scss",
+    "scss": "node-sass --output-style expanded -o Resources/public/website Resources/css",
+    "postcss": "postcss -u autoprefixer cssnano -r Resources/public/website/main.css --no-map",
+    "lint:css": "stylelint Resources/css/*.scss Resources/css/**/*.scss",
+    "lint:css:fix": "npm run lint:css:fix-only && npm run lint:css",
+    "lint:css:fix-only": "stylefmt Resources/css/*.scss",
+    "update:version": "npm version patch --git-tag-version false"
+  },
+  "dependencies": {
+    "jquery": "^3.2.1",
+    "massive-web": "^1.0.0"
+  },
+  "devDependencies": {
+    "autoprefixer": "^7.0.0",
+    "browserify": "^14.3.0",
+    "cssnano": "^3.10.0",
+    "eslint": "^3.19.0",
+    "node-sass": "^4.5.2",
+    "onchange": "^3.2.1",
+    "parallelshell": "^2.0.0",
+    "postcss-cli": "^3.2.0",
+    "stylefmt": "^5.3.2",
+    "stylelint": "^7.10.1",
+    "stylelint-config-standard": "^16.0.0",
+    "stylelint-scss": "^1.4.4",
+    "uglify-js": "^2.8.22",
+    "watchify": "^3.9.0"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions"
+  ],
+  "stylelint": {
+    "extends": "stylelint-config-standard",
+    "plugins": [
+      "stylelint-scss"
+    ],
+    "ignoreFiles": [
+      "Resources/css/vendor/*.scss"
+    ],
+    "rules": {
+      "at-rule-empty-line-before": [
+        "always",
+        {
+          "except": [
+            "blockless-after-same-name-blockless",
+            "first-nested"
+          ],
+          "ignore": [
+            "after-comment"
+          ],
+          "ignoreAtRules": [
+            "extend",
+            "include"
+          ]
+        }
+      ],
+      "function-comma-newline-before": "never-multi-line",
+      "string-quotes": "single",
+      "value-keyword-case": "lower",
+      "declaration-empty-line-before": "never",
+      "selector-attribute-quotes": "always",
+      "selector-class-pattern": "^[a-z][a-z-A-Z0-9]*$",
+      "selector-max-compound-selectors": [
+        3,
+        {
+          "severity": "warning"
+        }
+      ],
+      "selector-no-id": true,
+      "selector-list-comma-newline-before": "never-multi-line",
+      "selector-list-comma-space-after": "always-single-line",
+      "custom-media-pattern": "^[a-z][a-z-A-Z0-9]*$",
+      "media-query-list-comma-newline-before": "never-multi-line",
+      "at-rule-semicolon-space-before": "never",
+      "indentation": 4,
+      "max-line-length": 120,
+      "no-descending-specificity": true,
+      "no-duplicate-selectors": true,
+      "no-unknown-animations": true,
+      "no-empty-source": null,
+      "block-no-empty": null,
+      "color-hex-length": null,
+      "shorthand-property-no-redundant-values": null,
+      "scss/dollar-variable-pattern": "^[a-z][a-z-A-Z0-9]*$",
+      "scss/dollar-variable-colon-space-after": "always-single-line",
+      "scss/dollar-variable-colon-space-before": "never",
+      "scss/dollar-variable-empty-line-before": [
+        "always",
+        {
+          "except": [
+            "first-nested",
+            "after-comment",
+            "after-dollar-variable"
+          ]
+        }
+      ],
+      "scss/percent-placeholder-pattern": "^[a-z][a-z-A-Z0-9]*$",
+      "scss/double-slash-comment-whitespace-inside": "always",
+      "scss/declaration-nested-properties": "never",
+      "scss/operator-no-newline-after": true,
+      "scss/operator-no-newline-before": true,
+      "scss/operator-no-unspaced": true
+    }
+  },
+  "eslintConfig": {
+    "env": {
+      "browser": true
+    },
+    "globals": {
+      "require": true,
+      "module": true
+    },
+    "extends": "eslint:recommended",
+    "parserOptions": {
+      "ecmaVersion": 5,
+      "sourceType": "module"
+    },
+    "rules": {
+      "indent": [
+        "error",
+        4
+      ],
+      "linebreak-style": [
+        "error",
+        "unix"
+      ],
+      "quotes": [
+        "error",
+        "single"
+      ],
+      "one-var": [
+        "error",
+        "never"
+      ],
+      "operator-linebreak": [
+        "error",
+        "before"
+      ],
+      "padded-blocks": [
+        "error",
+        "never"
+      ],
+      "semi": [
+        "error",
+        "always"
+      ],
+      "max-len": [
+        "error",
+        120
+      ],
+      "max-statements-per-line": [
+        "error",
+        {
+          "max": 1
+        }
+      ],
+      "no-multiple-empty-lines": [
+        "error",
+        {
+          "max": 1
+        }
+      ],
+      "object-curly-spacing": [
+        "error",
+        "always"
+      ],
+      "curly": "error",
+      "eqeqeq": "error",
+      "capitalized-comments": "error",
+      "no-unused-expressions": "error",
+      "no-useless-call": "error",
+      "no-useless-concat": "error",
+      "no-useless-escape": "error",
+      "no-useless-return": "error",
+      "vars-on-top": "error",
+      "no-undef-init": "error",
+      "no-undefined": "error",
+      "no-use-before-define": "error",
+      "callback-return": "error",
+      "no-mixed-requires": "error",
+      "array-bracket-spacing": "error",
+      "block-spacing": "error",
+      "brace-style": "error",
+      "camelcase": "error",
+      "comma-spacing": "error",
+      "comma-style": "error",
+      "comma-dangle": "error",
+      "computed-property-spacing": "error",
+      "eol-last": "error",
+      "func-call-spacing": "error",
+      "func-name-matching": "error",
+      "key-spacing": "error",
+      "keyword-spacing": "error",
+      "lines-around-directive": "error",
+      "new-cap": "error",
+      "new-parens": "error",
+      "newline-after-var": "error",
+      "newline-before-return": "error",
+      "no-lonely-if": "error",
+      "no-nested-ternary": "error",
+      "no-trailing-spaces": "error",
+      "no-underscore-dangle": "error",
+      "no-unneeded-ternary": "error",
+      "no-whitespace-before-property": "error",
+      "object-curly-newline": "error",
+      "object-property-newline": "error",
+      "space-before-blocks": "error",
+      "space-before-function-paren": [
+        "error",
+        "never"
+      ],
+      "space-in-parens": "error",
+      "space-infix-ops": "error",
+      "space-unary-ops": "error",
+      "spaced-comment": "error",
+      "no-negated-condition": "warn",
+      "no-warning-comments": "warn",
+      "global-require": "warn",
+      "require-jsdoc": "warn"
+    }
+  }
+}
