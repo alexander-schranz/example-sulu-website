@@ -22,6 +22,7 @@
                         <title lang="en">Title</title>
                         <title lang="de">Titel</title>
                     </meta>
+
                     <params>
                         <param name="headline" value="true"/>
                     </params>
@@ -40,11 +41,20 @@
             </properties>
         </section>
 
-        <property name="article" type="text_editor">
+        <section name="header">
             <meta>
-                <title lang="en">Article</title>
-                <title lang="de">Artikel</title>
+                <title lang="en">Header</title>
+                <title lang="de">Header</title>
             </meta>
-        </property>
+
+            <properties>
+                <property name="headerTeaser" type="teaser_selection">
+                    <meta>
+                        <title lang="en">Teaser</title>
+                        <title lang="de">Teaser</title>
+                    </meta>
+                </property>
+            </properties>
+        </section>
     </properties>
 </template>
