@@ -4,15 +4,15 @@
           xmlns:xi="http://www.w3.org/2001/XInclude"
           xsi:schemaLocation="http://schemas.sulu.io/template/template http://schemas.sulu.io/template/template-1.0.xsd">
 
-    <key>default</key>
+    <key>overview</key>
 
-    <view>AppBundle:website:templates/pages/default</view>
+    <view>AppBundle:website:templates/pages/overview</view>
     <controller>SuluWebsiteBundle:Default:index</controller>
     <cacheLifetime>144000</cacheLifetime>
 
     <meta>
-        <title lang="en">Default</title>
-        <title lang="de">Standard</title>
+        <title lang="en">Overview</title>
+        <title lang="de">Übersicht</title>
     </meta>
 
     <properties>
@@ -29,23 +29,13 @@
             <xi:include href="../includes/header.xml"/>
         </section>
 
-        <section name="content">
+        <section name="overview">
             <meta>
-                <title lang="en">Content</title>
-                <title lang="de">Inhalt</title>
+                <title lang="en">Overview</title>
+                <title lang="de">Übersicht</title>
             </meta>
 
-
-            <xi:include href="../includes/content.xml"/>
-        </section>
-
-        <section name="block">
-            <meta>
-                <title lang="en">Blocks</title>
-                <title lang="de">Inhaltsblöcke</title>
-            </meta>
-
-            <xi:include href="../includes/blocks.xml"/>
+            <xi:include href="../includes/blocks-overview.xml"/>
         </section>
     </properties>
 </template>

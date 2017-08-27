@@ -4,5 +4,7 @@ Show step by step how a website is built with [sulu.io](http://sulu.io) from [su
 
 ## Steps
 
-1. [Installation and Basic Setup](https://github.com/alexander-schranz/example-sulu-website/pull/1)
-2. [Frontend Setup](https://github.com/alexander-schranz/example-sulu-website/pull/2)
+1. [Installation and basic setup](https://github.com/alexander-schranz/example-sulu-website/pull/1)
+2. [Frontend setup](https://github.com/alexander-schranz/example-sulu-website/pull/2)
+3. [Add template definitions](https://github.com/alexander-schranz/example-sulu-website/pull/3)
+
