@@ -1,0 +1,64 @@
+<?xml version="1.0" ?>
+<properties xmlns="http://schemas.sulu.io/template/template"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:schemaLocation="http://schemas.sulu.io/template/template http://schemas.sulu.io/template/template-1.0.xsd">
+
+    <block name="overview" default-type="text" minOccurs="0" maxOccurs="99">
+        <meta>
+            <title lang="de"></title>
+            <title lang="en"></title>
+        </meta>
+
+        <types>
+            <type name="text">
+                <meta>
+                    <title lang="en">Automatically Teaser</title>
+                    <title lang="de">Automatische Teaser</title>
+                </meta>
+
+                <properties>
+                    <property name="title" type="text_line">
+                        <meta>
+                            <title lang="en">Title</title>
+                            <title lang="de">Titel</title>
+                        </meta>
+
+                        <tag name="sulu.content.sortmode.show"/>
+                    </property>
+
+                    <property name="teaser" type="smart_content">
+                        <meta>
+                            <title lang="en">Smart Content</title>
+                            <title lang="de">Smart Content</title>
+                        </meta>
+                    </property>
+                </properties>
+            </type>
+
+            <type name="text">
+                <meta>
+                    <title lang="en">Manuel Teasers</title>
+                    <title lang="de">Manuelle Teasers</title>
+                </meta>
+
+                <properties>
+                    <property name="title" type="text_line">
+                        <meta>
+                            <title lang="en">Title</title>
+                            <title lang="de">Titel</title>
+                        </meta>
+
+                        <tag name="sulu.content.sortmode.show"/>
+                    </property>
+
+                    <property name="teaser" type="teaser_selection">
+                        <meta>
+                            <title lang="en">Teaser Selection</title>
+                            <title lang="de">Teaser Auswahl</title>
+                        </meta>
+                    </property>
+                </properties>
+            </type>
+        </types>
+    </block>
+</properties>
