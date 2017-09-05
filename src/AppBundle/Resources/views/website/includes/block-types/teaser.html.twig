@@ -1,0 +1,29 @@
+{% extends "AppBundle:website:includes/block-types/text.html.twig" %}
+
+{% block content %}
+    {% if content.teasers|length %}
+        <div property="teaser" class="teaser">
+            {% for teaser in content.teasers %}
+                <a href="{{ sulu_content_path(teaser.url) }}" class="teaser__item">
+                    <h3 class="teaser__title">
+                        {{ teaser.title }}
+                    </h3>
+
+                    {% if teaser.mediaId %}
+                        {% include "AppBundle:website:includes/image.html.twig" with {
+                            image: sulu_resolve_media(teaser.mediaId, app.request.locale),
+                            class: 'teaser__image',
+                            format: '300x150'
+                        } only %}
+                    {% endif %}
+
+                    {% if teaser.description %}
+                        <div class="teaser__description">
+                            {{ teaser.description|raw }}
+                        </div>
+                    {% endif %}
+                </a>
+            {% endfor %}
+        </div>
+    {% endif %}
+{% endblock %}

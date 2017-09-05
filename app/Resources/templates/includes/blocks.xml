@@ -37,8 +37,8 @@
 
             <type name="info">
                 <meta>
-                    <title lang="en">info</title>
-                    <title lang="de">info</title>
+                    <title lang="en">Info</title>
+                    <title lang="de">Info</title>
                 </meta>
 
                 <properties>
@@ -127,7 +127,7 @@
                         </meta>
                     </property>
 
-                    <property name="code" type="text_area">
+                    <property name="embed" type="text_area">
                         <meta>
                             <title lang="en">Embed Code</title>
                             <title lang="de">Embed Code</title>
@@ -167,6 +167,7 @@
 
                         <params>
                             <param name="types" value="image" />
+                            <param name="displayOptions" value="false"/>
                         </params>
                     </property>
                 </properties>
@@ -229,8 +230,8 @@
                     
                     <property name="teasers" type="teaser_selection">
                         <meta>
-                            <title lang="en">Images</title>
-                            <title lang="de">Bilder</title>
+                            <title lang="en">Teasers</title>
+                            <title lang="de">Teasers</title>
                         </meta>
                     </property>
                 </properties>

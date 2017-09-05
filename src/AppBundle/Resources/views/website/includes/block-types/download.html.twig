@@ -1,0 +1,15 @@
+{% extends "AppBundle:website:includes/block-types/text.html.twig" %}
+
+{% block content %}
+    {% if content.files|length %}
+        <ul property="files" class="file">
+            {% for file in content.files %}
+                <li class="file__item file__item--{{ file.type.name }}">
+                    <a href="{{ asset(file.url) }}" class="file__link">
+                        {{ file.title }}
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+{% endblock %}

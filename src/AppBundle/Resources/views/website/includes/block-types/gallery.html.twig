@@ -1,0 +1,19 @@
+{% extends "AppBundle:website:includes/block-types/text.html.twig" %}
+
+{% block content %}
+    {% if content.images|length %}
+        <div property="images" class="gallery">
+            {% for image in content.images %}
+                <div class="gallery__item">
+                    <a href="{{ image.thumbnails['1440x'] }}">
+                        {% include "AppBundle:website:includes/image.html.twig" with {
+                            image: image,
+                            class: 'gallery__image',
+                            format: '100x50'
+                        } only %}
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
+    {% endif %}
+{% endblock %}

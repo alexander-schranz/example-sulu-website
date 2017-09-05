@@ -1,5 +1,26 @@
 {% extends "AppBundle:website:master.html.twig" %}
 
+{% block header %}
+    <header class="header">
+        {% if content.headerTeasers|length %}
+            {% for teaser in content.headerTeasers %}
+                {% set image = sulu_resolve_media(teaser.mediaId, app.request.locale) %}
+
+                <a href="{{ sulu_content_path(teaser.url) }}"
+                   class="header__item"
+                   title="{{ teaser.title }}">
+                    {% include "AppBundle:website:includes/image.html.twig" with {
+                        image: image,
+                        class: 'header__image',
+                        format: '1440x',
+                        mobileFormat: '720x'
+                    } only %}
+                </a>
+            {% endfor %}
+        {% endif %}
+    </header>
+{% endblock %}
+
 {% block content %}
     <h1 property="title">{{ content.title }}</h1>
 {% endblock %}

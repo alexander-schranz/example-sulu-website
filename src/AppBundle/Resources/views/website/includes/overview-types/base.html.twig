@@ -1,0 +1,18 @@
+<section class="content">
+    {% if content.title %}
+        <h2 property="title" class="content__title">
+            {{ content.title }}
+        </h2>
+    {% endif %}
+
+    {% if content.teasers|length %}
+        <div property="teasers" typeof="collection">
+            {% for teaser in content.teasers %}
+                <a href="{{ sulu_content_path(teaser.url) }}" class="teaser__item">
+                    {% block teaser %}{% endblock %}
+                </a>
+            {% endfor %}
+        </div>
+    {% endif %}
+</section>
+

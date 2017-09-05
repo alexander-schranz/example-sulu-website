@@ -1,0 +1,11 @@
+<picture>
+    {% if mobileFormat|default -%}
+        <source srcset="{{ image.thumbnails[mobileFormat] }}" media="(max-width: 720px)">
+    {%- endif %}
+
+    <img src="{{ image.thumbnails[format] }}" {# Src -#}
+         alt="{{ image.title }}" {# Alt -#}
+         {% if class|default -%} class="{{ class }}"{%- endif %} {# Class -#}
+         title="{{ image.description|default(image.title) }}"  {#- Title -#}
+    >
+</picture>

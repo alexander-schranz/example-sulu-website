@@ -35,7 +35,6 @@
                 <title lang="de">Inhalt</title>
             </meta>
 
-
             <xi:include href="../includes/content.xml"/>
         </section>
 

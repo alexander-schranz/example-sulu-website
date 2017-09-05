@@ -1,0 +1,22 @@
+{% extends "AppBundle:website:includes/overview-types/base.html.twig" %}
+
+{% block teaser %}
+    {% set description = teaser.excerptDescription|default(teaser.description) %}
+    {% set image = teaser.excerptImages[0]|default(teaser.headerImages[0]|default) %}
+
+    <h3 class="teaser__title">{{ teaser.title }}</h3>
+
+    {% if image %}
+        {% include "AppBundle:website:includes/image.html.twig" with {
+            image: image,
+            class: 'teaser__image',
+            format: '300x150'
+        } only %}
+    {% endif %}
+
+    {% if description %}
+        <div class="teaser__description">
+            {{ description|raw }}
+        </div>
+    {% endif %}
+{% endblock %}
