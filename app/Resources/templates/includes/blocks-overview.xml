@@ -10,10 +10,10 @@
         </meta>
 
         <types>
-            <type name="text">
+            <type name="automatic">
                 <meta>
-                    <title lang="en">Automatically Teaser</title>
-                    <title lang="de">Automatische Teaser</title>
+                    <title lang="en">Automatically Teasers</title>
+                    <title lang="de">Automatische Teasers</title>
                 </meta>
 
                 <properties>
@@ -26,18 +26,28 @@
                         <tag name="sulu.content.sortmode.show"/>
                     </property>
 
-                    <property name="teaser" type="smart_content">
+                    <property name="teasers" type="smart_content">
                         <meta>
                             <title lang="en">Smart Content</title>
                             <title lang="de">Smart Content</title>
                         </meta>
+
+                        <params>
+                            <param name="properties" type="collection">
+                                <param name="title" value="title" />
+                                <param name="description" value="description" />
+                                <param name="headerImages" value="headerImages" />
+                                <param name="excerptImages" value="excerpt.images"/>
+                                <param name="excerptDescription" value="excerpt.description" />
+                            </param>
+                        </params>
                     </property>
                 </properties>
             </type>
 
-            <type name="text">
+            <type name="manual">
                 <meta>
-                    <title lang="en">Manuel Teasers</title>
+                    <title lang="en">Manual Teasers</title>
                     <title lang="de">Manuelle Teasers</title>
                 </meta>
 
@@ -51,7 +61,7 @@
                         <tag name="sulu.content.sortmode.show"/>
                     </property>
 
-                    <property name="teaser" type="teaser_selection">
+                    <property name="teasers" type="teaser_selection">
                         <meta>
                             <title lang="en">Teaser Selection</title>
                             <title lang="de">Teaser Auswahl</title>

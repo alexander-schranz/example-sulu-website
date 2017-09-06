@@ -1,0 +1,17 @@
+<aside class="info {{- content.position ? ' info--' ~ content.position : '' }}">
+    {% block title %}
+        {% if content.title %}
+            <h2 property="title" class="info__title">
+                {{ content.title }}
+            </h2>
+        {% endif %}
+    {% endblock %}
+
+    {% block descripiton %}
+        {% if content.description %}
+            <div property="description" class="info_description">
+                {{ content.description|raw }}
+            </div>
+        {% endif %}
+    {% endblock %}
+</aside>

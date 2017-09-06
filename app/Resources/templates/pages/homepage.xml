@@ -27,7 +27,7 @@
             </meta>
 
             <properties>
-                <property name="headerTeaser" type="teaser_selection">
+                <property name="headerTeasers" type="teaser_selection">
                     <meta>
                         <title lang="en">Teaser</title>
                         <title lang="de">Teaser</title>

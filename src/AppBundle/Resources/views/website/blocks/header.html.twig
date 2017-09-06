@@ -1,0 +1,12 @@
+<header class="header">
+    {% if content.headerImages|length %}
+        {% for image in content.headerImages %}
+            {% include "AppBundle:website:includes/image.html.twig" with {
+                image: image,
+                class: 'header__image',
+                format: '1440x',
+                mobileFormat: '720x'
+            } only %}
+        {% endfor %}
+    {% endif %}
+</header>

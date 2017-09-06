@@ -1,0 +1,9 @@
+{% extends "AppBundle:website:includes/block-types/text.html.twig" %}
+
+{% block content %}
+    {% if content.embed %}
+        <div property="embed" class="embed">
+            {{ content.embed|raw }}
+        </div>
+    {% endif %}
+{% endblock %}

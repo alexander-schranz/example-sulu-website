@@ -1,0 +1,23 @@
+{% extends "AppBundle:website:includes/overview-types/base.html.twig" %}
+
+{% block teaser %}
+    <h3 class="teaser__title">{{ teaser.title }}</h3>
+
+    {% if teaser.mediaId %}
+        {% set image = sulu_resolve_media(teaser.mediaId, app.request.locale) %}
+
+        {% if image %}
+            {% include "AppBundle:website:includes/image.html.twig" with {
+                image: image,
+                class: 'teaser__image',
+                format: '300x150'
+            } only %}
+        {% endif %}
+    {% endif %}
+
+    {% if teaser.description %}
+        <div class="teaser__description">
+            {{ teaser.description|raw }}
+        </div>
+    {% endif %}
+{% endblock %}

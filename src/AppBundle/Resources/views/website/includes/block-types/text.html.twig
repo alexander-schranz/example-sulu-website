@@ -1,0 +1,19 @@
+<section class="content">
+    {% block title %}
+        {% if content.title %}
+            <h2 property="title" class="content__title">
+                {{ content.title }}
+            </h2>
+        {% endif %}
+    {% endblock %}
+
+    {% block description %}
+        {% if content.description %}
+            <div property="description" class="content__description">
+                {{ content.description|raw }}
+            </div>
+        {% endif %}
+    {% endblock %}
+
+    {% block content %}{% endblock %}
+</section>

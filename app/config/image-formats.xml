@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<formats xmlns="http://schemas.sulu.io/media/formats"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://schemas.sulu.io/media/formats http://schemas.sulu.io/media/formats-1.1.xsd">
+
+    <format key="1440x">
+        <scale x="1440"/>
+    </format>
+
+    <format key="720x">
+        <scale x="720"/>
+    </format>
+
+    <format key="300x150">
+        <scale x="300" y="150"/>
+    </format>
+
+    <format key="100x50">
+        <scale x="100" y="50"/>
+    </format>
+</formats>

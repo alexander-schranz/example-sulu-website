@@ -1,0 +1,8 @@
+<div property="blocks" typeof="collection" class="blocks">
+    {% for block in content.blocks %}
+        {% include 'AppBundle:website:includes/block-types/' ~ block.type ~ '.html.twig' with {
+            content: block,
+            view: view.blocks[loop.index0]
+        } only %}
+    {% endfor %}
+</div>
